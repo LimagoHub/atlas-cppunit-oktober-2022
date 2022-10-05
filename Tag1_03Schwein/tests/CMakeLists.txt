@@ -17,19 +17,19 @@ set(SOURCE
 
 
 # Create test executable
-add_executable(StapelTest ${SOURCE} ${HEADER})
+add_executable(SchweinTest ${SOURCE} ${HEADER})
 
 # Linking
-target_link_libraries(StapelTest PRIVATE gtest gmock)
+target_link_libraries(SchweinTest PRIVATE gtest gmock)
 
 
-add_test(NAME StapelTest COMMAND StapelTest)
+add_test(NAME SchweinTest COMMAND SchweinTest)
 
 # Push it to tests
-set_target_properties(StapelTest PROPERTIES FOLDER Tests)
+set_target_properties(SchweinTest PROPERTIES FOLDER Tests)
 
 # Build tests where other libraries reside
-set_target_properties(StapelTest 
+set_target_properties(SchweinTest 
 	PROPERTIES
 	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIG>"
 	LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIG>"

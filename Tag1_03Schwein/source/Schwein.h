@@ -1,6 +1,7 @@
 #pragma once
 #include <ostream>
 #include <string>
+#include <boost/functional/hash.hpp>
 
 class schwein
 {
@@ -8,7 +9,7 @@ private:
 	std::string name;
 	int gewicht;
 
-	void set_gewicht(const int gewicht)
+	void set_gewicht(const int gewicht) // generiert
 	{
 		this->gewicht = gewicht;
 	}
@@ -23,24 +24,25 @@ public:
 	}
 
 
-	std::string get_name() const
+	std::string get_name() const // generiert
 	{
 		return name;
 	}
 
-	int get_gewicht() const
+	int get_gewicht() const // generiert
 	{
 		return gewicht;
 	}
 
+		
 
-	void set_name(const std::string& name)
+	void set_name(const std::string& name) // ursprünglich generient selbst programmiert
 	{
 		if (name == "Elsa") throw std::invalid_argument("name ist nicht erlaubt");
 		this->name = name;
 	}
 
-	void fressen()
+	void fressen() // selbst programmiert
 	{
 		set_gewicht(get_gewicht() + 1);
 	}
