@@ -11,26 +11,25 @@ set_target_properties(gmock_main gtest_main PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUD
 
 set(SOURCE
 	main.cpp
-	StapelTest.h
-	StapelTest.cpp
+	
 	)
 
 
 
 # Create test executable
-add_executable(PersonenServiceTest ${SOURCE} ${HEADER})
+add_executable(StapelTest ${SOURCE} ${HEADER})
 
 # Linking
-target_link_libraries(PersonenServiceTest PRIVATE gtest gmock)
+target_link_libraries(StapelTest PRIVATE gtest gmock)
 
-# Mark it as test executable for CMake
-add_test(NAME PersonenServiceTest COMMAND PersonenServiceTest)
+
+add_test(NAME StapelTest COMMAND StapelTest)
 
 # Push it to tests
-set_target_properties(PersonenServiceTest PROPERTIES FOLDER Tests)
+set_target_properties(StapelTest PROPERTIES FOLDER Tests)
 
 # Build tests where other libraries reside
-set_target_properties(PersonenServiceTest
+set_target_properties(StapelTest 
 	PROPERTIES
 	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIG>"
 	LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIG>"
