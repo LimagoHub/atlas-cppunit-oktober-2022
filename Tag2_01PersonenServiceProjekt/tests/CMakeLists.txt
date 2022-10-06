@@ -11,13 +11,14 @@ set_target_properties(gmock_main gtest_main PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUD
 
 set(SOURCE
 	main.cpp
-	
-	)
+	Mockpersonen_repository.h
+	personen_service_impl_test.h
+	 "personen_service_impl_test.cpp")
 
 
 
 # Create test executable
-add_executable(PersonenServiceTest ${SOURCE} ${HEADER})
+add_executable(PersonenServiceTest ${SOURCE} ${HEADER} )
 
 # Linking
 target_link_libraries(PersonenServiceTest PRIVATE gtest gmock)

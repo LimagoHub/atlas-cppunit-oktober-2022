@@ -56,5 +56,18 @@ public:
 			<< " vorname: " << obj.vorname
 			<< " nachname: " << obj.nachname;
 	}
+
+
+	friend bool operator==(const person& lhs, const person& rhs)
+	{
+		return lhs.id == rhs.id
+			&& lhs.vorname == rhs.vorname
+			&& lhs.nachname == rhs.nachname;
+	}
+
+	friend bool operator!=(const person& lhs, const person& rhs)
+	{
+		return !(lhs == rhs);
+	}
 };
 
