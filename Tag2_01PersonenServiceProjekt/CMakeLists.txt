@@ -9,7 +9,13 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 
 
-add_executable(PersonenService source/main.cpp  "source/persistence/person.h" "source/persistence/personen_repository.h" "source/service/personen_service_impl.h" "source/service/personen_service_exception.h")
+add_executable(PersonenService source/main.cpp  
+"source/persistence/person.h" 
+"source/persistence/personen_repository.h" 
+"source/service/personen_service_impl.h" 
+"source/service/personen_service_exception.h"
+"source/service/blacklist_service.h"
+)
 
 
 # Add tests

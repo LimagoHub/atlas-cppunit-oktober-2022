@@ -2,11 +2,13 @@
 #include "../persistence/person.h"
 #include "../persistence/personen_repository.h"
 #include "../service/personen_service_exception.h"
+#include "../service/blacklist_service.h"
 
 class personen_service_impl {
 
 	personen_repository& repo;
-
+	blacklist_service &blacklist_service_;
+	
 	void validate_person(person& person_) const
 	{
 		if (person_.get_vorname().length() < 2)
@@ -18,7 +20,7 @@ class personen_service_impl {
 
 	void business_check(person& person_) const
 	{
-		if (person_.get_vorname() == "Attila")
+		if (blacklist_service_.is_blacklist_member(person_))
 			throw personen_service_exception("Antipath");
 	}
 
@@ -36,13 +38,13 @@ class personen_service_impl {
 
 
 public:
-	personen_service_impl(personen_repository& repo)
-		: repo(repo)
+
+
+	personen_service_impl(personen_repository& repo, blacklist_service& blacklist_service)
+		: repo(repo),
+		  blacklist_service_(blacklist_service)
 	{
 	}
-
-
-	
 
 	/*
 	 *	Vorname < 2 -> PSE
