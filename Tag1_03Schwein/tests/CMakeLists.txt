@@ -12,12 +12,12 @@ set_target_properties(gmock_main gtest_main PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUD
 set(SOURCE
 	main.cpp
 	
-	)
+	 "CalcClientTest.h" "MockCalculator.h")
 
 
 
 # Create test executable
-add_executable(SchweinTest ${SOURCE} ${HEADER})
+add_executable(SchweinTest ${SOURCE} ${HEADER} "CalcClientTest.cpp")
 
 # Linking
 target_link_libraries(SchweinTest PRIVATE gtest gmock)

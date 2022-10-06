@@ -1,6 +1,6 @@
 #include "StapelTest.h"
-
-
+#include "gmock/gmock.h"
+using namespace testing;
 TEST_F(StapelTest, is_empty_leerer_stapel_returns_true)
 {
 	// Arrange
@@ -10,7 +10,7 @@ TEST_F(StapelTest, is_empty_leerer_stapel_returns_true)
 	bool result = object_under_test.is_empty();
 	
 	// Assertion
-	EXPECT_TRUE(result);
+	EXPECT_THAT(result, IsTrue());
 }
 
 TEST_F(StapelTest, is_empty_nicht_leerer_stapel_returns_false)
